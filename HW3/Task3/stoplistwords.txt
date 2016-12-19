@@ -1,0 +1,40 @@
+	Choosing stop list words based on term frequency of unigrams:
+--------------------------------------------------------------
+1) If there is no restriction of disk space then I would index all words and will not choose any stopwords.
+
+2) But if there is a restriction and has to choose then I would go with functional words in top 50 frequent words as they do not have any meaning on their own.
+   This will save disk space as they are most frequent and need more space to save data.Further removing stopwords depends on how much disk space is present or optimise index search. But in my opinion too many stop words will hurt search effectiveness hence needs to be choosen with caution.
+
+  
+   Following will be stop words in stoplist:
+
+   the
+   of
+   and
+   in
+   to
+   a
+   is
+   for
+   as
+   by
+   that
+   are
+   with
+   on
+   from
+   s
+   or
+   be
+   was
+   it
+   at
+   an
+   this
+   which
+   
+
+
+
+
+
