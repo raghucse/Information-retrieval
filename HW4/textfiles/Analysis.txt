@@ -1,0 +1,127 @@
+
+===============================================================================================================================================================
+QUERY: global warming potential
+
+---Lucene------
+1 Q0 Negativecarbondioxideemission.txt 1 0.2704903 Lucene
+1 Q0 Globalwarming.txt 2 0.24626842 Lucene
+1 Q0 Carbondioxideemissions.txt 3 0.24533501 Lucene
+1 Q0 Climate.txt 4 0.19745198 Lucene
+1 Q0 Bioenergywithcarboncaptureandstorage.txt 5 0.18963823 Lucene
+
+---Task 2 program---
+1 Q0 RenewableenergyinSweden.txt 1 0.9506490390280227 VectorSpaceModel
+1 Q0 UnitedStatesEnvironmentalProtectionAgency.txt 2 0.9493700598507753 VectorSpaceModel
+1 Q0 Naturalenvironment.txt 3 0.9484517687331713 VectorSpaceModel
+1 Q0 Globalwarming.txt 4 0.9471039385823649 VectorSpaceModel
+1 Q0 Lowcarbonpower.txt 5 0.9464133179995641 VectorSpaceModel
+
+Analysis:
+Based on observed statistics all the top 5 results generated from lucene program have the complete query string "global warming potential" at least once.
+Hence license considers term co-occurrence. 
+The vector space model implemented for task 2 does not take term co-occurrence into consideration. Hence only one page "Globalwarming.txt" has the complete term.
+    
+As per following Lucene documentation Lucene uses different scoring formula 
+https://lucene.apache.org/core/4_0_0/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html
+
+All the top 5 files of Lucene program generated are query relevant. They are the topic relevant to global warming potential.
+Where as the top 5 files of task 2 program seems to be relevant to "global warming" rather than global warming potential. 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUERY: green power renewable energy
+
+----Lucene------
+2 Q0 Renewableenergypayments.txt 1 0.36628205 Lucene
+2 Q0 RenewableenergyintheCzechRepublic.txt 2 0.34780362 Lucene
+2 Q0 Ecocommerce.txt 3 0.33504772 Lucene
+2 Q0 RenewableEnergyCertificate.txt 4 0.3154009 Lucene
+2 Q0 RenewableEnergyCertificates.txt 5 0.3154009 Lucene
+
+---Task 2 program---
+2 Q0 Environmentalpricingreform.txt 1 0.9389923072732149 VectorSpaceModel
+2 Q0 LosAngeles.txt 2 0.928625318834551 VectorSpaceModel
+2 Q0 Sustainableprocurement.txt 3 0.9219440749760325 VectorSpaceModel
+2 Q0 Ecocommerce.txt 4 0.9207213166690585 VectorSpaceModel
+2 Q0 Waterfootprint.txt 5 0.9188735691786056 VectorSpaceModel
+
+Analysis:
+There is no file in the corpus having complete query term "green power renewable energy"
+The top 5 results of Lucene mostly talk about renewable energy. Taking Renewableenergypayments.txt the term "renewable energy" occurs together
+at most of the times in the file.
+We can say bigram "renewable energy" influenced the result.
+        
+In Task 2 top 5 
+1st focuses on green hence environmental pricing reform page
+2nd is mainly about Los Angeles city 
+3rd focuses on green procurement as topic
+4th ecommere is on renewable energy.
+5th talks about water footprint. All different terms of the query are present but the document is not much relevant to the query. The term cooccurrence information would have prevented this
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUERY: solar energy california
+
+---Lucene---
+3 Q0 NevadaSolarOne.txt 1 0.32365742 Lucene
+3 Q0 SolarEnergyGeneratingSystems.txt 2 0.2983218 Lucene
+3 Q0 Solarpower.txt 3 0.2928021 Lucene
+3 Q0 California.txt 4 0.28748614 Lucene
+3 Q0 SolarDecathlon.txt 5 0.28144458 Lucene
+
+---Task 2 program---
+3 Q0 Caltech.txt 1 0.9182419097237535 VectorSpaceModel
+3 Q0 California.txt 2 0.9160567360208439 VectorSpaceModel
+3 Q0 Clothesline.txt 3 0.8825562909528077 VectorSpaceModel
+3 Q0 Biosecurity.txt 4 0.8772358207746288 VectorSpaceModel
+3 Q0 Camarillo,California.txt 5 0.8772358207746288 VectorSpaceModel
+
+Analysis:
+
+All the top 3 files of Lucene program generated seem to solar energy related. 4th one is california related and fifth one is solar decathlon event which takes place in California.
+The top 3 seems to take co-occurrence into account. Though not a whole query but bigrams like "solar energy".
+
+For Task 2 program 
+Top 2 pages are California city related. 
+3rd page seems to be related to clothes line which is not relevant to the query. It is about laundry.
+4th page also seems to be diverted from required result.
+5th is a California-based page.
+  
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUERY: light bulb bulbs alternative alternatives
+
+---Lucene------
+4 Q0 Phaseoutofincandescentlightbulbs.txt 1 0.6417157 Lucene
+4 Q0 Energysavinglamp.txt 2 0.43114248 Lucene
+4 Q0 Incandescentlightbulb.txt 3 0.39321244 Lucene
+4 Q0 Incandescentlightbulbs.txt 4 0.39321244 Lucene
+4 Q0 LEDlamp.txt 5 0.2292942 Lucene
+
+---Task 2 program---
+4 Q0 Phaseoutofincandescentlightbulbs.txt 1 0.8996918852824585 VectorSpaceModel
+4 Q0 Energyconservation.txt 2 0.8847755963845289 VectorSpaceModel
+4 Q0 Incandescentlightbulb.txt 3 0.88261621049014 VectorSpaceModel
+4 Q0 Incandescentlightbulbs.txt 4 0.88261621049014 VectorSpaceModel
+4 Q0 Greenmarketing.txt 5 0.8458163666786783 VectorSpaceModel
+
+Analysis:
+Top 5 results of Lucene talk about alternative light bulbs. They all seems to be topically relevant.
+Even here in none of the file has the complete query.
+
+1st 3rd 4th results of task 2 program talk about alternative light bulbs which seem to be appropriate result for the given query but 2nd and 5th result talk about saving energy as the main topic where light bulb alternative is discussed.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Conclusion:
+
+As per resource found on Internet Lucene used following scoring method 
+https://lucene.apache.org/core/4_0_0/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html
+
+Task 2 uses method mentioned in implementation_details.doc
+
+The different scoring system also has impact into the results produced.
+
+The important observation made during the analysis is that Lucene based scoring seems to be using term co-occurrence information for determining results which is missing  from task 2 implementation which has led query irrelevant results most of the time.
+This could have been corrected if bigrams or trigram information were used along with unigrams.
+
+===================================================================================================================================================================
