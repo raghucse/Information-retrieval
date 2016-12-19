@@ -1,0 +1,9 @@
+-------------------------------------------------------------------
+G1
+pages with no in-links (sources) proportion : 0.0
+pages with no out-links	(sinks) proportion  : 0.017
+-------------------------------------------------------------------
+G2
+pages with no in-links (sources) proportion : 0.07806932120493333
+pages with no out-links	(sinks) proportion  : 0.3600165387272797
+-------------------------------------------------------------------

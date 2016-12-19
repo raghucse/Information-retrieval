@@ -1,0 +1,9 @@
+perplexity: 999.9999999999519 => (initial convergence value calculated when all pages have same page rank)
+perplexity: 648.1142985482996
+perplexity: 658.6149082906934
+perplexity: 650.8700521590878
+perplexity: 649.3165831215498
+perplexity: 648.883645330339
+perplexity: 648.9380945738169
+perplexity: 649.0866687208443
+perplexity: 649.2257080784531
