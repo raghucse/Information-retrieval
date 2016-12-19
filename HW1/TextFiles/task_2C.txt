@@ -1,0 +1,47 @@
+Terminologies used:
+lowest depth - 1
+highest depth - 5
+BFS - Breadth first search
+DFS - Depth-first search
+
+Breadth first search crawler crawls shallower URLs first. Hence the links which appear at the lower depths are given importance.
+Depth first search crawler crawls deeper URL first. Hence importance is given to the URL appearing at the higher depths.
+
+Comparing based on number of URL's retrieved
+--------------------------------------------
+Breadth first search returned 1000 URL. Since all the unique links are crawled at the lower depth, 
+encountering the same link at higher and ignoring it doesn't result in loss of links when depth limit imposed.   
+
+Depth first search returned 636 URL. Discards the link and its children links at lower depth,  
+if the link has been found at higher depth earlier, hence a low number of pages and loss of data when depth limit imposed.
+
+As the quality of pages is high at the shallower depth. The BFS crawler returned a large number of quality pages than DFS.
+
+Comparing top 5 URL 
+-------------------
+Following comparison is done assuming the topic is on solar energy  as seed URL is about types of sustainable energy. 
+Among top 5, top 3 are same URL and topical related
+
+As the depth increased in DFS the content of page diverges from topic solar energy.
+The 4th page returned by DFS was https://en.wikipedia.org/wiki/Solar_Energy_(journal) which talks about solar energy journal 
+and does contain information related to solar energy.Where as the 4th page of BFS crawler was 
+https://en.wikipedia.org/wiki/Solar_heating which talks about solar energy harnessing which is more relevant.
+
+The 5th page of DFS is https://en.wikipedia.org/wiki/Solar_heating  is same as the 4th page of BFS. But BFS found this 
+relevant link much earlier than DFS.
+The 5th page of BFS is https://en.wikipedia.org/wiki/Solar_photovoltaics which is about equipment to harness solar energy
+which again has relevant content.
+
+Ignoring seed URL.
+1 out of top 4 pages diverges from topic for DFS.
+ALL pages have topic relevent content for BFS.
+
+conclusion:
+Though 1 irrelavant topic is okay, as we start comparing more pages, this number increases at much faster rate for DFS than BFS.
+
+
+
+
+
+
+

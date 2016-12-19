@@ -1,0 +1,34 @@
+List 1 contains urls crawled using task1 code with seed as https://en.wikipedia.org/wiki/Sustainable_energy in the order they were crawled.
+List 2 contains urls crawled using task1 code with seed as https://en.wikipedia.org/wiki/Solar_power in the order they were crawled.
+Combined list containes the merged url
+url limit of combined list is 1000
+
+Merging process for List 1 and List 2 with minimal loss of information 
+------------------------------------------------------------------------
+
+The links that were crawled first, i.e the one which appeared at the shallower depth are more important.
+Hence we iterate lists from top. 
+
+1) Take fisrt url of List1 and remove it from List1. Add it to the end of combined list if it is not already present in it.
+2) Take first url of List2 and remove it from List2. Add it to the end of combined list if it is not already present in combined list and size
+   limit of combined list is not reached.
+3) repeat Step:1 and step:2 until combined list url limit is reached. 
+4) Combined list contains 1000 urls
+
+Pseudo code
+-----------------------------------------------------------------------
+while(combined-list.size()!=1000) //exit when list size limit is met
+{
+	url = List1.getFirst(); //get the first element and remove it from list 1
+	if(!combined-list.contain(url)) //if the url is not already present in the combined-list
+	{
+	    combined-list.add(url);  // add the url to the end of list
+	}
+	
+	
+	url = List2.getFirst(); //get the first element and remove it from list 2
+	if(!combined-list.contain(url) && combined-list.size()!=1000) //if the url is not already present in the combined-list and combined-list size limit has not reached
+	{
+	    combined-list.add(url); // add the url to the end of list
+	}
+}
