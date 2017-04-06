@@ -47,7 +47,9 @@ public class TextTransform {
                     //////////////////////////////////////////////////////////
 
                 while ((line = br.readLine()) != null) {
+                    //removes html content
                     String nonhtmlLine = line.replaceAll("\\<[^>]*>","");
+                    //removes punctuation
                     String nonPuncline = i.textTransform(nonhtmlLine);
                     bw.write(nonPuncline+"\n");
                 }
@@ -73,38 +75,38 @@ public class TextTransform {
     {
         String caseFolded = nonHtmlString.toLowerCase();
 
-        //removing punctuations expecpt withing numbers
+        //removing punctuations expecept within numbers
         if(caseFolded.matches("(.*)\\d[ : , \\- . \\\\ /  ]\\d(.*)")) {
             String split[] = caseFolded.split(" ");
             for (int i = 0; i < split.length; i++) {
                 if (split[i].matches("(.*)\\d[ : , \\- . \\\\ /  ]\\d(.*)")) {
-                    split[i] = split[i].replaceAll("^(?!-)\\p{P}", " ");
-                    split[i] = split[i].replaceAll("(?!-)\\p{P}$", " ");
+                    split[i] = split[i].replaceAll("^(?!-)\\p{P}", " "); //replace all punctuations except - at beginning of string since they are not enclosed by numbers
+                    split[i] = split[i].replaceAll("(?!-)\\p{P}$", " "); //replace all punctuations except - at end of string since they are not enclosed by numbers
 
                     char[] c = split[i].toCharArray();
                     String formatted = "";
                     for (int j = 0; j < c.length; j++) {
-                        if (String.valueOf(c[j]).matches("(?!-)\\p{P}")) {
+                        if (String.valueOf(c[j]).matches("(?!-)\\p{P}")) { //if the character is a punctuation except -
 
                             if ((j != 0 || j != c.length) && (String.valueOf(c[j - 1]).matches("[^\\d]") || String.valueOf(c[j + 1]).matches("[^\\d]"))) {
-                                formatted = formatted + " ";
+                                formatted = formatted + " "; //if it is not between the numbers replace it with space
                             } else {
-                                formatted = formatted + String.valueOf(c[j]);
+                                formatted = formatted + String.valueOf(c[j]); // else ignore
                             }
 
                         } else {
-                            formatted = formatted + String.valueOf(c[j]);
+                            formatted = formatted + String.valueOf(c[j]); // does not contain any punctuation
                         }
                     }
                     split[i] = formatted;
                 } else {
-                    split[i] = split[i].replaceAll("(?!-)\\p{P}", " ");
+                    split[i] = split[i].replaceAll("(?!-)\\p{P}", " "); //replace since it does not have a word which has punctuations between numbers
                 }
             }
             String nonalphaPunc = "";
             for (String s : split) {
                 if (!s.equals(""))
-                    nonalphaPunc = nonalphaPunc.concat(s + " ");
+                    nonalphaPunc = nonalphaPunc.concat(s + " "); //concat
             }
             caseFolded = nonalphaPunc;
         }
