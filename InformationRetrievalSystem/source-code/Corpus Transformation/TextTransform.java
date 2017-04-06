@@ -7,7 +7,6 @@ public class TextTransform {
     static String documentDir = dataStoreDir + "/textDocuments";
     static String dirSeperator = "/";
     public static void main(String[] args) {
-	// write your code here
         createDatstore();
         TextTransform i = new TextTransform();
         File folder = new File(System.getProperty("user.dir") + "/cacm");
@@ -15,7 +14,6 @@ public class TextTransform {
         int count = 0;
         for (File file : listOfFiles) {
             if (file.isFile()) {
-         //       File input = new File("1.html");
                 System.out.println("parsing "+file.getName());
 
                 BufferedReader br = null;
@@ -73,13 +71,6 @@ public class TextTransform {
     //Tranform the text files present in the given directory path
     public static  String textTransform(String nonHtmlString)
     {
-        //  String htmlString = "<html> 'hello' ? , - . = \"Raghu\"  \" 9\"9 \"b\",.9999b\"888-90'0\" <html>";
-        //  System.out.println(htmlString);
-
-        //removing html tags
-        //   String nonHtmlString = Jsoup.parse(htmlString).text();
-
-        //case folding
         String caseFolded = nonHtmlString.toLowerCase();
 
         //removing punctuations expecpt withing numbers
@@ -87,11 +78,8 @@ public class TextTransform {
             String split[] = caseFolded.split(" ");
             for (int i = 0; i < split.length; i++) {
                 if (split[i].matches("(.*)\\d[ : , \\- . \\\\ /  ]\\d(.*)")) {
-                    // System.out.println(split[i]);
                     split[i] = split[i].replaceAll("^(?!-)\\p{P}", " ");
-                    // System.out.println(split[i]);
                     split[i] = split[i].replaceAll("(?!-)\\p{P}$", " ");
-                    // System.out.println(split[i]);
 
                     char[] c = split[i].toCharArray();
                     String formatted = "";
@@ -115,7 +103,6 @@ public class TextTransform {
             }
             String nonalphaPunc = "";
             for (String s : split) {
-                //  System.out.println(s);
                 if (!s.equals(""))
                     nonalphaPunc = nonalphaPunc.concat(s + " ");
             }
@@ -135,7 +122,6 @@ public class TextTransform {
             documents.mkdir();
         } else {
             documents.mkdir();
-         //   System.out.println(dataStoreDir);
         }
     }
 }
